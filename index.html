@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details Form</title>
+    <style>
+        button {
+            background-color: blue; /* Default button color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Add transition effect */
+        }
+
+        button:hover,
+        button.clicked {
+            background-color: green; /* Button color on hover or click */
+        }
+    </style>
+</head>
+<body>
+    <h2>User Details Form</h2>
+    <form id="userForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+        
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+            
+            // Get user details from the form
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            
+            // Log user details to the console
+            console.log('First Name:', firstName);
+            console.log('Last Name:', lastName);
+            console.log('Email:', email);
+            
+            // Optional: Clear form fields after submission
+            document.getElementById('firstName').value = '';
+            document.getElementById('lastName').value = '';
+            document.getElementById('email').value = '';
+
+            // Change button color to green on click
+            document.getElementById('submitButton').classList.add('clicked');
+        });
+    </script>
+</body>
+</html>
